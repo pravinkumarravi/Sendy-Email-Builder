@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+let mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,20 +11,19 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('src/js/editor.js', 'dist/js/')
-   .js('src/js/custom.js', 'dist/js/')
-   .sass('src/sass/editor.scss', 'dist/css/')
-   .copy('src/images/*', 'dist/images/')
-   .copy('src/fonts/*', 'dist/fonts/')
-   .options({
-       processCssUrls: false
-   });
+mix
+  .js("src/js/editor.js", "dist/js/")
+  .js("src/js/custom.js", "dist/js/")
+  .sass("src/sass/editor.scss", "dist/css/")
+  .copy("src/images/*", "dist/images/")
+  .copy("src/fonts/*", "dist/fonts/")
+  .options({
+    processCssUrls: false,
+  });
 
-if (mix.config.inProduction) {
-    mix.disableNotifications();
-}
-
-
+// if (mix.config.inProduction) {
+//     mix.disableNotifications();
+// }
 
 // Full API
 // mix.js(src, output);

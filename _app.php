@@ -14,9 +14,9 @@ class App
 
     // Page Titles <title></title>
     private static $pageTitles = [
-        'theme'          	    => 'Choose campaign theme',
-        'builder'         	    => 'Create new campaign',
-        'login'  				=> 'Authorization'
+        'theme'                  => 'Choose campaign theme',
+        'builder'                 => 'Create new campaign',
+        'login'                  => 'Authorization'
     ];
 
     /**
@@ -54,30 +54,33 @@ class App
     {
     }
     /**
-     * Private unserialize method to prevent unserializing of the *Singleton*
+     * Private unserialize method to prevent un serializing of the *Singleton*
      * instance.
      *
      * @return void
      */
-    private function __wakeup()
+    public function __wakeup()
     {
     }
 
     /** VIEW FUNCTIONS **/
 
     // Set current page
-    public static function setPage( $page ){
+    public static function setPage($page)
+    {
         self::$page = $page;
     }
 
     // Get current page
-    public static function getPage(){
+    public static function getPage()
+    {
         return self::$page;
     }
 
     // Display page title according to current page
-    public static function displayPageTitle(){
-        echo isset( self::$pageTitles[self::$page] ) ? self::$pageTitles[self::$page] : self::$pageTitles['builder'];
+    public static function displayPageTitle()
+    {
+        echo isset(self::$pageTitles[self::$page]) ? self::$pageTitles[self::$page] : self::$pageTitles['builder'];
     }
 
 
@@ -85,8 +88,9 @@ class App
     /** USER FUNCTIONS **/
 
     // Check if the user is logged in
-    public static function isUserLoggedIn(){
-        if ( isset( $_SESSION['user_id'] ) ) {
+    public static function isUserLoggedIn()
+    {
+        if (isset($_SESSION['user_id'])) {
             return true;
         }
         return false;
@@ -96,17 +100,18 @@ class App
     // Get current user information
     // if $attr is passed - return specific attribute
     // otherwise - return whole array
-    public static function getUserInfo($attr = null){
-        if ( !self::isUserLoggedIn() ) {
+    public static function getUserInfo($attr = null)
+    {
+        if (!self::isUserLoggedIn()) {
             return false;
         }
 
         $result = self::DBQuery('SELECT * FROM `login` where `id`= "' . $_SESSION['user_id'] . '" LIMIT 1')->fetch();
-        if(is_array($result)){
-            if(!$attr) {
+        if (is_array($result)) {
+            if (!$attr) {
                 return $result;
             }
-            if(array_key_exists($attr, $result)){
+            if (array_key_exists($attr, $result)) {
                 return $result[$attr];
             }
         }
@@ -116,52 +121,59 @@ class App
 
 
     // Get user ID
-    public static function getUserID(){
+    public static function getUserID()
+    {
         return self::getUserInfo('id');
     }
 
     // Get user App ID
-    public static function getUserApp(){
-       return self::getUserInfo('app');
+    public static function getUserApp()
+    {
+        return self::getUserInfo('app');
     }
 
     // Get user name
-    public static function getUserName(){
+    public static function getUserName()
+    {
         return self::getUserInfo('name');
     }
 
     // Get user company
-    public static function getUserCompany(){
+    public static function getUserCompany()
+    {
         return self::getUserInfo('company');
     }
 
     // Get user email
-    public static function getUserEmail(){
+    public static function getUserEmail()
+    {
         return self::getUserInfo('username');
     }
 
 
     // Do user logout
-    public static function doUserLogout(){
+    public static function doUserLogout()
+    {
         $_SESSION['user_id'] = '';
-        unset( $_SESSION['user_id'] );
+        unset($_SESSION['user_id']);
     }
 
     /** THEME/TEMPLATE FUNCTIONS **/
     // Get list of available email templates
     // return array with template slug and name
-    public static function getTemplates(){
+    public static function getTemplates()
+    {
         $result = array();
         $templates = array_filter(glob('templates/*'), 'is_dir');
-        foreach ($templates as $template){
+        foreach ($templates as $template) {
             $template_slug = basename($template);
 
             $template_name = str_replace('_', ' ', $template_slug);
             $template_name = str_replace('-', ' ', $template_name);
             $template_name = ucwords($template_name);
             $tmp = array(
-                'slug'=> $template_slug,
-                'name'=> $template_name
+                'slug' => $template_slug,
+                'name' => $template_name
             );
 
             array_push($result, $tmp);
@@ -171,7 +183,8 @@ class App
 
     /** DATABASE FUNCTIONS **/
     // Connect to database
-    public static function DBConnect($db_name, $db_user, $db_password, $db_host = '127.0.0.1'){
+    public static function DBConnect($db_name, $db_user, $db_password, $db_host = '127.0.0.1')
+    {
         $db_host = $db_host ? $db_host : '127.0.0.1';
         /* Connect to a MySQL database using driver invocation */
         $dsn = 'mysql:dbname=' . $db_name . ';host=' . $db_host . ';charset=utf8';
@@ -185,16 +198,17 @@ class App
     }
 
     // SQL Query
-    public static function DBQuery( $q ){
-        $q = self::$db->query($q );
+    public static function DBQuery($q)
+    {
+        $q = self::$db->query($q);
         return $q;
     }
 
     // Insert Records, Inserted ID will be returned
-    public static function DBExecute( $q ){
-        self::$db->exec($q );
+    public static function DBExecute($q)
+    {
+        self::$db->exec($q);
         $inserted_id = self::$db->lastInsertId();
         return $inserted_id;
     }
-
 }

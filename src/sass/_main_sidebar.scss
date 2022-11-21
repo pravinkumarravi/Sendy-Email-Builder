@@ -7,6 +7,7 @@
   z-index: 99;
   background: $main-sidebar-bg-color;
   color: $main-sidebar-color;
+  display: none;
   .sidebar-header {
     background: $logo-bg-color;
     padding: 20px 5px;
@@ -31,14 +32,14 @@
         padding-top: 5px;
         .title {
           font-size: 16px;
-          font-family: 'Roboto', sans-serif;
+          font-family: "Roboto", sans-serif;
           font-weight: 700;
           letter-spacing: 1.1px;
           display: block;
         }
         .subtitle {
           font-size: 12px;
-          font-family: 'Roboto', sans-serif;
+          font-family: "Roboto", sans-serif;
           font-weight: 300;
           letter-spacing: 1.1px;
           display: block;
@@ -57,11 +58,13 @@
     }
     .nav-item {
       display: block;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       text-transform: uppercase;
       cursor: pointer;
       padding: 0px;
-      a:hover, &.active, &:hover {
+      a:hover,
+      &.active,
+      &:hover {
         color: $nav-item-active-color;
       }
       .item {
@@ -83,7 +86,8 @@
           cursor: pointer;
           padding: 5px 0px;
           padding-left: 40px;
-          a:hover, &:hover {
+          a:hover,
+          &:hover {
             color: $subnav-item-active-color;
           }
           &.active {
@@ -107,11 +111,13 @@
     }
     .nav-item {
       display: block;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       text-transform: uppercase;
       cursor: pointer;
       padding: 0px;
-      a:hover, &.active, &:hover {
+      a:hover,
+      &.active,
+      &:hover {
         color: $nav-item-active-color;
       }
       .item {
@@ -133,7 +139,8 @@
           cursor: pointer;
           padding: 12px 0px;
           padding-left: 40px;
-          a:hover, &:hover {
+          a:hover,
+          &:hover {
             color: $subnav-item-active-color;
           }
           &.active {
@@ -162,7 +169,7 @@
       border: none;
       cursor: pointer;
 
-      &:hover{
+      &:hover {
         color: $button-main-active-color;
         background: $button-main-active-bg-color;
       }
@@ -176,7 +183,7 @@
       color: $button-secondary-color;
       background: $button-secondary-bg-color;
 
-      &:hover{
+      &:hover {
         color: $button-secondary-active-color;
         background: $button-secondary-active-bg-color;
       }

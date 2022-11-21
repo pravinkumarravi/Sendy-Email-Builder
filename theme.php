@@ -2,8 +2,6 @@
 
 App::setPage('theme');
 
-require_once '_security.php';
-
 require_once '_header.php';
 ?>
 
@@ -17,7 +15,7 @@ require_once '_header.php';
                 <option value="" disabled selected>Please select..</option>
                 <?php
                 $templates = App::getTemplates();
-                foreach($templates as $template) { ?>
+                foreach ($templates as $template) { ?>
                     <option value="<?php echo $template['slug']; ?>"><?php echo $template['name']; ?></option>
                 <?php } ?>
             </select>

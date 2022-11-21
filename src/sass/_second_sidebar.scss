@@ -7,6 +7,29 @@
   z-index: 100;
   background: $second-sidebar-bg-color;
   overflow-y: auto;
+  .toggle-options {
+    margin: 0 -5px;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      text-align: center !important;
+      li {
+        flex: 1;
+        padding: 15px;
+        cursor: pointer;
+        color: $main-color;
+        list-style-type: none;
+        text-align: center !important;
+        background-color: $main-sidebar-bg-color;
+        &.active {
+          background-color: $subnav-item-active-bg-color;
+          color: $nav-item-active-color;
+        }
+      }
+    }
+  }
   .sidebar-inner {
     display: none;
     padding-top: 20px;
@@ -14,7 +37,7 @@
     margin: 0 auto;
     .inner-header {
       padding: 15px 0px 30px 0px;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       color: $second-sidebar-header-color;
       text-align: center;
     }
@@ -44,7 +67,7 @@
           background-color: $button-module-bgoption-bg-color;
           color: $button-module-bgoption-color;
 
-          &:hover{
+          &:hover {
             background-color: $button-module-bgoption-active-color;
             color: $button-module-bgoption-active-bg-color;
           }
@@ -56,7 +79,8 @@
         margin-bottom: 20px;
         cursor: pointer;
         color: $second-sidebar-module-color;
-        .module-thumb, .module-title {
+        .module-thumb,
+        .module-title {
           text-align: center;
           text-transform: uppercase;
         }
@@ -69,7 +93,7 @@
         color: $option-main-color;
         font-size: 12px;
         .group-header {
-          font-family: 'Roboto', sans-serif;
+          font-family: "Roboto", sans-serif;
           margin-bottom: 20px;
           padding-bottom: 10px;
           border-bottom: 1px solid $option-border-color;
@@ -88,12 +112,12 @@
           .style-control {
             color: $option-main-color;
           }
-          .style-control>span{
-            padding:5px;
+          .style-control > span {
+            padding: 5px;
             word-break: break-all;
           }
-          .style-control>button{
-            border:none;
+          .style-control > button {
+            border: none;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
@@ -101,19 +125,19 @@
             color: $button-module-bgoption-color;
             background: $button-module-bgoption-bg-color;
 
-            &:hover{
+            &:hover {
               color: $button-module-bgoption-active-color;
               background: $button-module-bgoption-active-bg-color;
             }
           }
-          .style-control>select{
+          .style-control > select {
             padding: 2px 20px;
           }
-          .style-control .minicolors-input{
+          .style-control .minicolors-input {
             border: none;
             padding: 5px 10px;
           }
-          .style-control .minicolors-swatch{
+          .style-control .minicolors-swatch {
             top: 0px;
             right: 0px;
             height: 30px;

@@ -1,5 +1,10 @@
 {
-  "/dist/js/editor.js": "/dist/js/editor.js",
-  "/dist/css/editor.css": "/dist/css/editor.css",
-  "/dist/js/custom.js": "/dist/js/custom.js"
+    "/dist/js/editor.js": "/dist/js/editor.js",
+    "/dist/js/custom.js": "/dist/js/custom.js",
+    "/dist/images/logo.png": "/dist/images/logo.png",
+    "/dist/fonts/emailbuilder-icon-font.eot": "/dist/fonts/emailbuilder-icon-font.eot",
+    "/dist/fonts/emailbuilder-icon-font.svg": "/dist/fonts/emailbuilder-icon-font.svg",
+    "/dist/fonts/emailbuilder-icon-font.ttf": "/dist/fonts/emailbuilder-icon-font.ttf",
+    "/dist/fonts/emailbuilder-icon-font.woff": "/dist/fonts/emailbuilder-icon-font.woff",
+    "/dist/css/editor.css": "/dist/css/editor.css"
 }
